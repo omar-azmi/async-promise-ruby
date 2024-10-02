@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "lib/async/promise/version"
+require_relative "lib/async/promise"
 
 Gem::Specification.new do |spec|
 	spec.name = "async-promise"
