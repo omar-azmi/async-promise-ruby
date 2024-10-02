@@ -1,8 +1,12 @@
-require "rspec"
+# frozen_string_literal: true
+
+require "sus"
 require "time"
 require "./lib/async/promise"
 
-RSpec.describe AsyncPromise do
+AsyncPromise = Async::Promise::AsyncPromise
+
+describe Async::Promise::AsyncPromise do
 	### Testing for Synchronous behavior, to verify control flow
 	context "Synchronous Resolution Behavior" do
 		it "should resolve with a value" do
@@ -161,7 +165,7 @@ RSpec.describe AsyncPromise do
 				promise.reject("Unhandled Rejection")
 				# the error gets risen only after we call the wait method
 				expect { promise.wait }.to raise_error("Unhandled Rejection")
-				end
+			end
 		end
 	end
 
