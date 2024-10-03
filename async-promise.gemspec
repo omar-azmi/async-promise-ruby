@@ -7,34 +7,36 @@ Gem::Specification.new do |spec|
 	spec.version = Async::Promise::VERSION
 	spec.authors = ["Omar Azmi"]
 	spec.email = ["64020006+omar-azmi@users.noreply.github.com"]
+	spec.license = "CC-BY-NC-SA-4.0"
 
-	spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-	spec.description = "TODO: Write a longer description or delete this line."
-	spec.homepage = "TODO: Put your gem's website or public repo URL here."
-	spec.required_ruby_version = ">= 3.0.0"
+	spec.summary = "Asynchronous Javascript style Promises for Ruby."
+	spec.description = \
+		"An Asynchronous Promise library for Ruby, built over the *async* gem, providing Javascript ES6 style Promises." \
+		"Also includes utilities like ES6-style *fetch* that return a Promise."
+	spec.homepage = "https://github.com/omar-azmi/async-promise-ruby"
+	spec.required_ruby_version = ">= 3.1.1"
 
-	spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
+	spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
 	spec.metadata["homepage_uri"] = spec.homepage
-	spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-	spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+	spec.metadata["source_code_uri"] = "#{spec.homepage}.git"
+	spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/main/changelog.md"
 
 	# Specify which files should be added to the gem when it is released.
-	# The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-	gemspec = File.basename(__FILE__)
-	spec.files = IO.popen(%w[git ls-files -z], chdir: __dir__, err: IO::NULL) do |ls|
-		ls.readlines("\x0", chomp: true).reject do |f|
-			(f == gemspec) ||
-				f.start_with?(*%w[bin/ test/ spec/ features/ .git .github appveyor Gemfile])
-		end
-	end
-	spec.bindir = "exe"
-	spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
-	spec.require_paths = ["lib"]
+	# We include all ".rb" and ".md" files inside of the "./lib/" directory, and also include the ".md" files in the root directory.
+	repo_root_dir = __dir__
+	spec.files = Dir.glob(["lib/**/*.{rb,md}", "*.md",], File::FNM_DOTMATCH, base: repo_root_dir)
 
-	# Uncomment to register a new dependency of your gem
-	# spec.add_dependency "example-gem", "~> 1.0"
+	# Dependencies
 
-	# For more information and examples about making a new gem, check out our
-	# guide at: https://bundler.io/guides/creating_gem.html
+	# Runtime dependencies
+	spec.add_dependency("async", "~> 2.17")
+
+	# Development dependencies
+	spec.add_development_dependency("rake", "~> 13.0")
+	spec.add_development_dependency("rubocop", "~> 1.65")
+	spec.add_development_dependency("solargraph", "~> 0.50.0")
+
+	# Test dependencies
+	spec.add_development_dependency("sus", "~> 0.31.0")
 end

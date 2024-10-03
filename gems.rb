@@ -5,12 +5,14 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in async-promise.gemspec
 gemspec
 
-gem "async", "~> 2.17"
+gem "async", "~> 2.17", require: false
 
-gem "sus", "~> 0.31.0"
+group :development do
+	gem "rake", "~> 13.0", require: false
+	gem "rubocop", "~> 1.65", require: false
+	gem "solargraph", "~> 0.50.0", require: false
+end
 
-gem "rake", "~> 13.0"
-
-gem "rubocop", "~> 1.65"
-
-gem "solargraph", "~> 0.50.0"
+group :test do
+	gem "sus", "~> 0.31.0", require: false
+end
