@@ -11,8 +11,8 @@ Gem::Specification.new do |spec|
 
 	spec.summary = "Asynchronous Javascript style Promises for Ruby."
 	spec.description = \
-		"An Asynchronous Promise library for Ruby, built over the *async* gem, providing Javascript ES6 style Promises." \
-		"Also includes utilities like ES6-style *fetch* that return a Promise."
+		"An Asynchronous Promise library for Ruby, built over the \"async\" gem, providing Javascript ES6 style Promises. " \
+		"It also includes utilities like ES6-style \"fetch\" that returns a Promise."
 	spec.homepage = "https://github.com/omar-azmi/async-promise-ruby"
 	spec.required_ruby_version = ">= 3.1.1"
 
@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
 	# Specify which files should be added to the gem when it is released.
 	# We include all ".rb" and ".md" files inside of the "./lib/" directory, and also include the ".md" files in the root directory.
 	repo_root_dir = __dir__
-	spec.files = Dir.glob(["lib/**/*.{rb,md}", "*.md",], File::FNM_DOTMATCH, base: repo_root_dir)
+	spec.files = Dir.glob(["lib/**/*.{rb,md}", "sig/**/*.rbs", "*.md",], File::FNM_DOTMATCH, base: repo_root_dir)
 
 	# Dependencies
 

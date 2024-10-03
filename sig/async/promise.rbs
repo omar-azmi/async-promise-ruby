@@ -1,6 +1,27 @@
 module Async
-	class Promise
+	class Promise[T] < Async::Variable
 		VERSION: String
-		# See the writing guide of rbs: https://github.com/ruby/rbs#guides
+
+		# Constructor with optional resolve and reject handlers.
+		def initialize: (?((T) -> U), ?((String | StandardError) -> U)) -> void
+
+		# Class Methods
+		def self.resolve: (?T | Promise[T]) -> Promise[T]
+		def self.reject: (?String | StandardError) -> Promise[T]
+		def self.all: (Array[T | Promise[T]]) -> Promise[Array[T]]
+		def self.race: (Array[T | Promise[T]]) -> Promise[T]
+		def self.timeout: (?Float, ?Float, resolve: ?T, reject: ?String | StandardError) -> Promise[T]
+
+		# Instance Methods
+		def resolve: (?T | Promise[T]) -> void
+		def reject: (?String | StandardError) -> void
+		def then: [U] (?((T) -> U), ?((String | StandardError) -> U)) -> Promise[U]
+		def catch: [U] (?((String | StandardError) -> U)) -> Promise[U]
+		def wait: () -> T
+		def status: () -> "pending" | "fulfilled" | "rejected"
+
+		# Private helper methods
+		private def handle_imminent_resolve: (T) -> void
+		private def handle_imminent_reject: (String | StandardError) -> void
 	end
 end
