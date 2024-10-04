@@ -8,7 +8,6 @@ gemspec
 gem "async", "~> 2.17", require: false
 
 group :development do
-	gem "rake", "~> 13.0", require: false
 	gem "rubocop", "~> 1.65", require: false
 	gem "solargraph", "~> 0.50.0", require: false
 end

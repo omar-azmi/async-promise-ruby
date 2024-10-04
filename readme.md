@@ -15,7 +15,7 @@ Under the hood, this library uses the [async](https://github.com/socketry/async)
 
 Install the gem via `bundler` by executing:
 
-```bash
+```shell
 bundle add async-promise
 ```
 
@@ -135,3 +135,38 @@ Otherwise, a summary follows:
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at: [https://github.com/omar-azmi/async-promise-ruby](https://github.com/omar-azmi/async-promise-ruby).
+
+
+## Development
+
+Clone the repo
+
+```shell
+git clone https://github.com/omar-azmi/async-promise-ruby.git
+```
+
+Install dependencies
+
+```shell
+bundle install
+```
+
+Run tests (in parallel)
+
+```shell
+bundle exec sus-parallel
+```
+
+Make changes to the source code and increment the library version.
+
+Build the gem library file
+
+```shell
+gem build "./async-promise.gemspec"
+```
+
+Push the changes to [rubygems.org](https://rubygems.org)
+
+```shell
+gem push "./async-promise-*.gem"
+```

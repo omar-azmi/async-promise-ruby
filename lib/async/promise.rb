@@ -7,7 +7,7 @@ module Async
 	# An Asynchronous Promise (of generic type `T`) holds necessary information about what should be executed when the promise is resolved or rejected,
 	# and which child Promise nodes to propagate the output values of the resolver/rejector to.
 	class Promise < Async::Variable
-		VERSION = "0.1.0"
+		VERSION = "0.1.1"
 
 		alias_method :async_resolve, :resolve # rename the `Async::Variable.resolve` instance method to `async_resolve`, since we will be using the same method name for our own logic of resolving values.
 		alias_method :async_wait, :wait # rename the `Async::Variable.wait` instance method to `async_wait`, since we will need to tap into the waiting process to raise any errors that may have occurred during the process.

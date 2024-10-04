@@ -1,10 +1,23 @@
 ## [Unreleased]
 
 
+## [0.1.1] - 2024-10-04
+
+### Summary
+- Cleanup repository, and add RBS type signatures.
+
+### Added
+- Add RBS type signatures in [`./sig/async/promise.rbs`](./sig/async/promise.rbs).
+- Add content to the [`./readme.md`](./readme.md) file.
+
+### Dependency
+- Remove unnecessary dependence on the `rake` gem.
+
+
 ## [0.1.0] - 2024-10-03
 
 ### Summary
-- Initial release
+- Initial release.
 
 ### Added
 - Ability to create Javascript ES6 like [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) via the `Async::Promise` class.

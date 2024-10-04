@@ -33,7 +33,6 @@ Gem::Specification.new do |spec|
 	spec.add_dependency("async", "~> 2.17")
 
 	# Development dependencies
-	spec.add_development_dependency("rake", "~> 13.0")
 	spec.add_development_dependency("rubocop", "~> 1.65")
 	spec.add_development_dependency("solargraph", "~> 0.50.0")
 
